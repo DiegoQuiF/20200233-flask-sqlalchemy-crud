@@ -1,0 +1,44 @@
+<!-- GENERA UN FORMULARIO (EN LA PARTE IZQUIERDA DE LA PANTALLA) -->
+
+<form action="/new" method="POST" class="card bg-black text-light">
+  <div class="card-body p-4">
+    <h1 class="h5 mb-4">Agregar Contacto</h1>
+    <!-- SOLICITA LOS NOMBRES -->
+    <div class="mb-3">
+      <label for="fullname">Escriba sus nombres completos:</label>
+      <input
+        type="text"
+        name="fullname"
+        class="form-control rounded-0 bg-dark border-0 text-white"
+        placeholder="Write fullname"
+        autofocus
+      />
+    </div>
+
+    <!-- SOLICITA EL CORREO -->
+    <div class="mb-3">
+      <label for="email">Escriba su correo:</label>
+      <input
+        type="text"
+        name="email"
+        class="form-control rounded-0 bg-dark border-0 text-white"
+        placeholder="Write your email"
+        required
+      />
+    </div>
+
+    <!-- SOLICITA EL TELEFONO -->
+    <div class="mb-3">
+      <label for="phone">Escriba su telefono:</label>
+      <input
+        type="text"
+        name="phone"
+        class="form-control rounded-0 bg-dark border-0 text-white"
+        placeholder="+12123123123"
+      />
+    </div>
+
+    <!-- GENERA EL BOTÓN GUARDAR QUE AGREGARÁ AL NUEVO USUARIO INGRESADO -->
+    <button class="btn btn-primary">Guardar</button>
+  </div>
+</form>

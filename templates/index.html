@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+  Flask SQLAlchemy CRUD | Home 
+{% endblock %}
+{% block body %}
+<!--GENERA LA ESTRUCTURA PRINCIPAL DE LA PÁGINA-->
+    <div class="row">
+        <div class="col-md-5 p-5">
+            <!-- MUESTRA EL MENSAJE UBICADO EN EL ARCHIVO partials/_message.html -->
+            {% include 'partials/_message.html' %}
+
+            <!-- MUESTRA EL MENSAJE UBICADO EN EL ARCHIVO partials/_taskForm.html -->
+            {%  include 'partials/_taskForm.html' %}
+        </div>
+        <div class="col-md-7">
+            <!-- GENERA UN FOR QUE RECORRE LOS CONTACTOS OBTENIDOS DE LA BASE DE DATOS Y LOS MUESTRA EN PANTALLA -->
+            {% for contact in contactos %}
+            <div class="card mb-1 bg-black text-white">
+                <div class="card-body py-2 px-3">
+                    <div class="d-flex justify-content-between">
+                        <h5 class="card-title h6">{{ contact.fullname}}</h5>
+                        <div>
+                            <!--GENERA EL BOTÓN EDITAR Y EL BOTÓN DELETE AL LADO DE EL FULLNAME (BOTONES QUE A SU VEZ REDIRIGEN A PÁGINAS O ACTUALIZAN LA MISMA)-->
+                            <a href="{{ url_for('contacto.update', id=contact.id) }}" class="btn btn-dark btn-sm rounded-0">Editar</a>
+                            <a href="{{ url_for('contacto.delete', id=contact.id) }}" class="btn btn-danger btn-sm rounded-0">Eliminar</a>
+                        </div>
+                    </div>
+                    <p class="card-text">{{ contact.email }}</p>
+                    <p class="card-text">{{ contact.phone }}</p>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}

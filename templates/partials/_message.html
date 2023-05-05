@@ -1,0 +1,14 @@
+<!-- CREA UN MENSAJE QUE SE MUESTRA SOBRE EL FORMULARIO DE INGRESO DE USUARIO -->
+<!-- MUESTRA SI SE AGREGO UN NUEVO USUARIO, SE ELIMINÓ O SE EDITÓ -->
+
+{% with messages = get_flashed_messages() %} {% if messages %} {% for message in messages %}
+<div class="alert alert-info alert-dismissible fade show" role="alert">
+  {{message}}
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+{% endfor %} {% endif %} {% endwith %}
